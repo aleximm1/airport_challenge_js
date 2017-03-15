@@ -1,4 +1,4 @@
-function Plane() {
+function Plane(id) {
 
-  this.id = Math.random(100000);
+  this.id = id;
 }

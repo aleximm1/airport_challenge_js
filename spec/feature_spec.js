@@ -4,7 +4,7 @@ describe('feature test', function() {
 
     beforeEach(function() {
       airport = new Airport();
-      plane = new Plane();
+      plane = new Plane(01241);
     });
 
     describe('under normal conditions',function(){
@@ -31,9 +31,9 @@ describe('feature test', function() {
       });
 
       it('removes taken off plane from the planes array', function() {
-        airport.land(new Plane)
+        airport.land(new Plane(1))
         airport.land(plane)
-        airport.land(new Plane)
+        airport.land(new Plane(2))
         airport.takeOff(plane)
         expect(airport.planes()).not.toContain(plane)
       });
@@ -41,7 +41,7 @@ describe('feature test', function() {
       it('can\'t land a plane if airport is full', function() {
         var times = 20;
         for(var i=0; i < times; i++){
-          airport.land(new Plane)
+          airport.land(new Plane(i))
         }
         expect(function(){airport.land(plane); }).toThrowError('Airport is full, cannot land plane')
       });
